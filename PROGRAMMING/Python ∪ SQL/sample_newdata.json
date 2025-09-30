@@ -1,0 +1,22 @@
+{
+  "employees": [
+    {
+      "id": 1,
+      "name": "Alice",
+      "department": "HR"
+    },
+    {
+      "id": 2,
+      "name": "Bob",
+      "department": "Engineering"
+    },
+    {
+      "id": 3,
+      "name": "Charlie",
+      "department": "Sales"
+    }
+  ],
+  "company": "TechCorp",
+  "location": "New York",
+  "founded": 2010
+}

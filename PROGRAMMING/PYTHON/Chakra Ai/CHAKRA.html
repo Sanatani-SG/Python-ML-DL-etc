@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chakra AI - Indian Spirit of Intelligence</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to right, #ffecd2, #fcb69f);
+            color: #333;
+            text-align: center;
+        }
+        header {
+            background-color: #ff9933;
+            padding: 20px;
+            border-bottom: 5px solid #138808;
+        }
+        header h1 {
+            color: white;
+            font-size: 2.5em;
+            margin: 0;
+        }
+        .logo {
+            margin: 20px auto;
+            width: 150px;
+        }
+        section {
+            padding: 40px 20px;
+        }
+        #chakraStatus, #chakraOutput {
+            margin-top: 20px;
+            font-size: 20px;
+        }
+        button {
+            background-color: #ff9933;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background-color: #e57c00;
+        }
+        footer {
+            margin-top: 40px;
+            background-color: #138808;
+            color: white;
+            padding: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>🇮🇳 Chakra AI</h1>
+        <p>The Spirit of Indian Intelligence</p>
+    </header>
+
+    <img src="Gemini_Generated_Image_v3lza2v3lza2v3lz.jpeg" alt="Chakra AI Logo" class="logo">
+
+    <section>
+        <h2>Activate Chakra AI 🔥</h2>
+        <button onclick="startChakra()">Start Chakra</button>
+        <div id="chakraStatus"></div>
+
+        <h2 style="margin-top:50px;">Chakra's Answer 🔊</h2>
+        <div id="chakraOutput" style="color:#0c3c78;"></div>
+    </section>
+
+    <footer>
+        Jai Shri Shyam ✨ | Built with love in India
+    </footer>
+
+    <script>
+    function startChakra() {
+        fetch('/start-chakra')
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('chakraStatus').innerText = data.message;
+            startFetchingOutput();
+        })
+        .catch(error => {
+            document.getElementById('chakraStatus').innerText = 'Failed to start Chakra AI';
+        });
+    }
+
+    function startFetchingOutput() {
+        setInterval(() => {
+            fetch('/get-response')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('chakraOutput').innerText = data.response;
+            });
+        }, 3000);
+    }
+    </script>
+
+</body>
+</html>
